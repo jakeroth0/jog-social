@@ -1,4 +1,4 @@
-const { Post, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
 // below creates a new Sequelize model for Category
@@ -18,8 +18,9 @@ Post.init({
     post_date: {
         type: DataTypes.DATE,
     },
-    author_id: {
-        type: DataTypes.STRING,
+    user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
             model: "user",
             key: "id",
@@ -34,7 +35,7 @@ Post.init({
     // links db connection
     sequelize,
     timestamps: false,
-    freezeTableName: true,
+    freezeTableName: true,  
     underscored: true,
     modelName: "post",
   },

@@ -1,15 +1,14 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {
-    checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
-      }
+    // checkPassword(loginPw) {
+    //     return bcrypt.compareSync(loginPw, this.password);
+    //   }
 }
 
-User.init (
-{
+User.init ({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -27,33 +26,27 @@ User.init (
       validate: {
      isEmail: true,
       },
-      },
+    },
     user_created: {
         type: DataTypes.DATE,
-
     },
    password: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
     validate: {
         len: [10],
       },
-},
-},
-{
+    },
+  },
+  {
     // links db connection
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "user",
-   },
+  },
 )
     // Add hook here
-
-
-
-
-    module.exports = User
+    module.exports = User;
 
