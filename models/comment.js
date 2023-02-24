@@ -1,4 +1,4 @@
-const { Comment, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
 // below creates a new Sequelize model for Category
@@ -15,7 +15,7 @@ Comment.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
-    author_id: {
+    user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
@@ -25,13 +25,6 @@ Comment.init({
     },
     comment_date: {
         type: DataTypes.DATE,
-    },
-    parent_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: "comment",
-            key: "id",
-        },
     },
     post_id: {
         type: DataTypes.INTEGER,
