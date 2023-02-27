@@ -1,0 +1,66 @@
+<header>
+    <nav>
+      <ul>
+        <li><a href="{{baseUrl}}/">Home</a></li>
+        <li><a href="{{baseUrl}}/Dashboard">Dashboard</a></li>
+        <li><a href="{{baseUrl}}/Logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+     <h3>Create a Profile:</h3>
+
+     <form class=" form new-profile form">
+    <div class=" form profile group">
+    <label for="profile-username"> Create User name:</label>
+    <input class="form-input" type="text" id="username" name="username"/>
+    </div>
+
+    <div class=" form profile group">
+    <label for="profile- user_email"> What is you email address:</label>
+    <input class="form-input" type="text" id="user_email" name="user_email"/>
+    </div>
+    
+    <div class=" form profile group">
+    <label for="profile-password"> Please enter a password:</label>
+    <input class="form-input" type="text" id="password" name="password"/>
+    </div>
+
+    <div class=" form profile group">
+    <label for="profile-avatar"> Pick a Avatar:</label>
+    <input class="file" type="text" id="avatarInput" name="avatarInput"/>
+    </div>
+
+   
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create Profile</button>
+        <br><br>
+    <button type="submit">Upload Image</button>
+      </div>
+    </form>
+  </div>
+  {{#each username as |username| }}
+<div class="row align-center mb-5">
+  <div class="col-md-6">
+    <h4>{{{avatarInput}}} {{username}}</h4>
+
+    <div class="col-md-6">
+    <h5><a href="mailto:{{user_email}}">{{user_email}}</a></h5>
+  </div>
+</div>
+{{/each}}
+
+
+
+
+
+<script src="./js/profile.js"></script>
