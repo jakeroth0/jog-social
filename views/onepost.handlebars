@@ -1,0 +1,9 @@
+<h1>{{post.post_title}}</h1>
+<p>{{post.post_text}}</p>
+<p>posted by {{post.user.username}} on {{post.post_date}}</p>
+<h2>Comments</h2>
+{{#each post.comments}}
+<h3>{{this.user.username}}</h3>
+<p>{{this.comment_text}}</p>
+<p>- {{this.comment_date}}</p>
+{{/each}}
