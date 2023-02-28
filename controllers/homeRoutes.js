@@ -51,4 +51,9 @@ router.get('/login', (req, res) => {
     res.render('signup');
   });
 
+  // GET new post form page
+router.get('/new', async (req, res) => {
+    res.render('newpost');
+});
+
 module.exports = router;
