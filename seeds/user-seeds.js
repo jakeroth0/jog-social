@@ -25,7 +25,7 @@ const userData = [
       {
         id: 4,
         username: 'Amy',
-        user_email: 'amy@gmail.com',
+        user_email: 'amy1@gmail.com',
         user_created: new Date(),
         password: 'password123',
       },

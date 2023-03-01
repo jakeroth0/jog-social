@@ -46,6 +46,7 @@ router.get('/:id', withAuth, async (req, res) => {
             res.render('onepost', {
                 post,
                 user_id,
+                post_id: req.params.id,
                 user,
                 logged_in: true
             })
@@ -130,31 +131,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     }
   });
 
-// // PUT update post
-// router.put('/:id', withAuth, async (req, res) => {
-//     try {
-//       // Find the post by id
-//       const postData = await Post.findByPk(req.params.id);
-      
-//       // Check if the logged in user is the owner of the post
-//       if (postData.user_id !== req.session.user_id) {
-//         res.status(403).json({ message: 'You are not authorized to edit this post.' });
-//         return;
-//       }
-      
-//       // Update the post with the new data
-//       await postData.update({
-//         post_title: req.body.post_title,
-//         post_text: req.body.post_text
-//       });
-      
-//       // Redirect to the updated post
-//       res.redirect(`/posts/${req.params.id}`);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
-
   // PUT update post
 router.put('/edit/:id', withAuth, async (req, res) => {
     try {
@@ -198,5 +174,33 @@ router.put('/edit/:id', withAuth, async (req, res) => {
     }
   });
   
+  // POST a new comment
+router.post('/:id', withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+      res.redirect('/');
+  } else {
+      try {
+          const commentData = await Comment.create({
+              ...req.body,
+              user_id: req.session.user_id,
+              post_id: req.params.id
+          },
+          {
+              include: [
+                  {
+                      model: User,
+                      attributes: ['username', 'id']
+                  },
+                  {
+                      model: Post
+                  }
+              ]
+          });
+          res.status(200).json(commentData);
+      } catch (err) {
+          res.status(400).json(err);
+      }
+  }
+})
 
 module.exports = router;
