@@ -13,20 +13,36 @@
     <h1>
       ChatJOG
     </h1>
+   
+    <nav>
+       <ul>
+      
+      <li><a href="#">Sign UP</a></li>
+    </ul>
+    </nav>
+
     <!-- Only display the logout button if the user is logged in -->
     {{#if logged_in}}
     <nav>
-      <button class="btn" id="logout">logout</button>
+       <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Logout</a></li>
+       
+    </ul>
     </nav>
     {{/if}}
   </header>
   <main class="container container-fluid mt-5">
-    <p>post should show below</p>
+    
     <p>this is req.session.user_id:{{user_id}}</p>
     <a href="http://localhost:3001/api/users/profile/{{user_id}}">My Profile Page</a>
     {{{ body }}}
   </main>
   <footer>
+    <div class="container">
+    <p>&copy; ChatJOG. All rights reserved.</p>
+    <p>Created by Jake Roth, George Thomas, and Orlando Nelson </p>
+  </div>
       
   </footer>
 
