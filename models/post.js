@@ -17,6 +17,7 @@ Post.init({
     },
     post_date: {
         type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
     },
     user_id: {
         type: DataTypes.INTEGER,

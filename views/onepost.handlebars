@@ -2,8 +2,20 @@
 <p>{{post.post_text}}</p>
 <p>posted by {{post.user.username}} on {{post.post_date}}</p>
 <h2>Comments</h2>
+<h3>Add a comment</h3>
+<form class="new-comment">
+    <div class="form-group">
+        <label for="new-comment">add new comment:</label>
+        <input type="text" class="form-input" id="comment-text">
+        <input type="hidden" id="post_id" value="{{post_id}}">
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </div>
+</form>
 {{#each post.comments}}
 <h3>{{this.user.username}}</h3>
 <p>{{this.comment_text}}</p>
 <p>- {{this.comment_date}}</p>
 {{/each}}
+<script src="/js/newcomment.js"></script>
