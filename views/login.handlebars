@@ -1,17 +1,26 @@
-<h2>Login</h2>
+<div
+  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 shadow-2xl rounded-[40px]"
+>
+  <h2 class="text-2xl font-bold mb-8">Login</h2>
 
-<form class="form login-form">
-  <div class="form-group">
-    <label for="email-login">email:</label>
-    <input class="form-input" type="text" id="user_email-login" />
-  </div>
-  <div class="form-group">
-    <label for="password-login">password:</label>
-    <input class="form-input" type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">login</button>
-  </div>
-</form>
+  <form class="form login-form">
+    <div class="form-group">
+      <label for="email-login">Email:</label>
+      <br />
+      <input class="p-2 mt-4 border" type="text" id="user_email-login" />
+    </div>
+    <div class="form-group mt-4">
+      <label for="password-login">Password:</label>
+      <br />
+      <input class="p-2 mt-4 border" type="password" id="password-login" />
+    </div>
+    <div class="form-group mt-8">
+      <button
+        class="border bg-red-700 p-4 rounded-full text-white hover:shadow-xl focus:border-2"
+        type="submit"
+      >Login</button>
+    </div>
+  </form>
+</div>
 
 <script src="/js/login.js"></script>
