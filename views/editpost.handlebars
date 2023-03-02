@@ -1,34 +1,44 @@
-<form class="editpost">
-  <div class="form-group">
-    <label for="post_title">Post Title</label>
-    <p id="post_id">{{post.id}}</p>
-    <input
-      type="text"
-      class="form-input"
-      id="post_title"
-      value="{{post.post_title}}"
-    />
-  </div>
-  <div class="form-group">
-    <label for="post_text">post text</label>
-    <input
-      type="text"
-      class="form-input"
-      id="post_text"
-      value="{{post.post_text}}"
-    />
-  </div>
-   <div class="form-group">
-    <button class="btn btn-primary" type="submit">Submit</button>
-  </div>
-  <p>posted by {{post.user.username}} on {{post.post_date}}</p>
-</form>
-
-<h2>Comments</h2>
+<div class="container mx-auto rounded-[40px] p-8 px-16 shadow-2xl">
+  <h1 class="bold text-2xl">Edit</h1>
+  <form class="editpost">
+    <div class="form-group mt-6">
+      <label for="post_title">Post Title:</label>
+      <br />
+      <input
+        type="text"
+        class="form-input mt-2 border"
+        id="post_title"
+        value="{{post.post_title}}"
+      />
+    </div>
+    <div class="form-group mt-6">
+      <label for="post_text">Post Content:</label>
+      <br />
+      <input
+        type="text"
+        class="form-input mt-2 pb-[400px] w-1/2 border"
+        id="post_text"
+        value="{{post.post_text}}"
+      />
+    </div>
+    <div class="form-group">
+      <button
+        class="bg-red-700 p-4 mt-6 mb-6 rounded-full text-white"
+        type="submit"
+      >Submit</button>
+    </div>
+    <p>Posted by {{post.user.username}} on {{post.post_date}}.</p>
+  </form>
+</div>
 {{#each post.comments}}
-  <h3>{{this.user.username}}</h3>
-  <p>{{this.comment_text}}</p>
-  <p>- {{this.comment_date}}</p>
+  <div
+    id="comment-container"
+    class="container relative mx-auto mt-6 rounded-[40px] p-8 px-16 shadow-2xl"
+  >
+    <h3>{{this.user.username}}</h3>
+    <p>{{this.comment_text}}</p>
+    <p class="absolute top-9 right-9">- {{this.comment_date}}</p>
+  </div>
 {{/each}}
 
 <script src="/js/editpost.js"></script>

@@ -1,21 +1,33 @@
-<h1>{{post.post_title}}</h1>
-<p>{{post.post_text}}</p>
-<p>posted by {{post.user.username}} on {{post.post_date}}</p>
-<h2>Comments</h2>
-<h3>Add a comment</h3>
-<form class="new-comment">
-    <div class="form-group">
-        <label for="new-comment">add new comment:</label>
-        <input type="text" class="form-input" id="comment-text">
-        <input type="hidden" id="post_id" value="{{post_id}}">
-        <div class="form-group">
-            <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
+<div class="container mx-auto rounded-[40px] p-8 px-16 shadow-2xl">
+  <h1 class="bold text-2xl">{{post.post_title}}</h1>
+  <p class="mb-8">posted by {{post.user.username}} on {{post.post_date}}</p>
+  <p class="mb-8">{{post.post_text}}</p>
+  <form class="new-comment" class="">
+    <div class="form-group" id="comment-bar">
+      <input
+        placeholder="Comment:"
+        type="text"
+        class="form-input inline w-full border p-2"
+        id="comment-text"
+      />
+      <input type="hidden" id="post_id" value="{{post_id}}" />
+      <div class="form-group mt-2 text-center">
+        <button
+          class="inline rounded-full bg-red-700 p-4 text-white"
+          type="submit"
+        >Submit</button>
+      </div>
     </div>
-</form>
+  </form>
+</div>
 {{#each post.comments}}
-<h3>{{this.user.username}}</h3>
-<p>{{this.comment_text}}</p>
-<p>- {{this.comment_date}}</p>
+  <div
+    id="comment-container"
+    class="container relative mx-auto mt-6 rounded-[40px] p-8 px-16 shadow-2xl"
+  >
+    <h3>{{this.user.username}}</h3>
+    <p>{{this.comment_text}}</p>
+    <p class="absolute top-9 right-9">- {{this.comment_date}}</p>
+  </div>
 {{/each}}
 <script src="/js/newcomment.js"></script>

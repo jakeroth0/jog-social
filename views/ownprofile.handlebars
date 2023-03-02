@@ -1,5 +1,20 @@
-<h1>{{user.username}}</h1>
-<p>{{user.user_email}}</p>
-{{#each user.posts}}
-<h2>{{this.post_title}} - {{this.post_date}}</h2>
-{{/each}}
+<div
+  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 px-16 shadow-2xl rounded-[40px]"
+>
+  <p class="text-gray-500">{{user.user_email}}</p>
+  <h1 class="text-xl">@{{user.username}}</h1>
+
+  <h2 class="text-xl font-bold mb-4 mt-8 inline">Your Posts</h2>
+  <button class="inline float-right border"><a
+      href="http://localhost:3001/new"
+    >+</a></button>
+  <div class="border-b w-full mb-4"></div>
+  {{#each user.posts as |post|}}
+    <div
+      id="post-container"
+      class="p-4 my-4 border rounded-full"
+    >{{post.post_title}}
+      -
+      {{post.post_date}}</div>
+  {{/each}}
+</div>
