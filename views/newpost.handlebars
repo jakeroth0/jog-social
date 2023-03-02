@@ -1,17 +1,26 @@
-<h2>New Post</h2>
+<div
+  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 px-16 shadow-2xl rounded-[40px] min-w-[400px]"
+>
+  <h2 class="text-2xl font-bold mb-8">New Post</h2>
 
-<form class="form newpost-form">
-  <div class="form-group">
-    <label for="post_title">post title:</label>
-    <input class="form-input" type="text" id="post_title" />
-  </div>
-  <div class="form-group">
-    <label for="post_text">post text</label>
-    <input class="form-input" type="text" id="post_text" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">submit</button>
-  </div>
-</form>
+  <form class="form newpost-form">
+    <div class="form-group">
+      <label for="post_title">Post Title:</label>
+      <br />
+      <input class="w-full border mt-2" type="text" id="post_title" />
+    </div>
+    <div class="mt-6">
+      <label for="post_text">Post Content:</label>
+      <br />
+      <input class="w-full h-[400px] border mt-2" type="text" id="post_text" />
+    </div>
+    <div class="text-center">
+      <button
+        class="bg-red-700 p-4 mt-6 rounded-full text-white"
+        type="submit"
+      >Submit</button>
+    </div>
+  </form>
+</div>
 
 <script src="/js/newpost.js"></script>

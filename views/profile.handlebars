@@ -1,4 +1,13 @@
-<h1>{{user.username}}</h1>
-{{#each user.posts}}
-<h2>{{this.post_title}} - {{this.post_date}}</h2>
-{{/each}}
+<div
+  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[40px] p-8 px-16 shadow-2xl"
+>
+  <p class="text-gray-500">{{user.user_email}}</p>
+  <h1 class="text-xl mb-8">@{{user.username}}</h1>
+  <h2 class="mb-4 mt-8 inline text-xl font-bold">@{{user.username}}'s Posts</h2>
+  <div class="mb-4 w-full border-b"></div>
+  {{#each user.posts}}
+    <div id="post-container" class="my-4 rounded-full border p-4">
+      <h2>{{this.post_title}} - {{this.post_date}}</h2>
+    </div>
+  {{/each}}
+</div>
