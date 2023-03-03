@@ -3,33 +3,29 @@ const sequelize = require("sequelize");
 const { User, Post, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-module.exports = router;
+router.post('/seed', (req, res) => {
+    Comment.bulkCreate([
+        {
+            comment_text: 'Great post!',
+            user_id: 2,
+            comment_date: new Date(),
+            post_id: 1
+          },
+          {
+            comment_text: 'I agree with you.',
+            user_id: 1,
+            comment_date: new Date(),
+            post_id: 1
+          },
+          {
+            comment_text: 'This is very helpful.',
+            user_id: 2,
+            comment_date: new Date(),
+            post_id: 2
+          },  
+    ]).then(() => {
+        res.send('Comments seeded succesfully!');
+    });
+});
 
-// // POST a new comment
-// router.post('/new', withAuth, async (req, res) => {
-//     if (!req.session.logged_in) {
-//         res.redirect('/');
-//     } else {
-//         try {
-//             const commentData = await Comment.create({
-//                 ...req.body,
-//                 user_id: req.session.user_id,
-//                 post_id: req.params.id
-//             },
-//             {
-//                 include: [
-//                     {
-//                         model: User,
-//                         attributes: ['username', 'id']
-//                     },
-//                     {
-//                         model: Post
-//                     }
-//                 ]
-//             });
-//             res.status(200).json(commentData);
-//         } catch (err) {
-//             res.status(400).json(err);
-//         }
-//     }
-// })
+module.exports = router;

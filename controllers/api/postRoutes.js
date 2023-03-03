@@ -203,4 +203,30 @@ router.post('/:id', withAuth, async (req, res) => {
   }
 })
 
+// POST seed all of the posts
+router.post('/seed', (req, res) => {
+    Post.bulkCreate([
+        {
+            post_title: 'First Post',
+            post_date: new Date(),
+            user_id: 1,
+            post_text: 'This is my first post on jog-social.',
+          },
+          {
+            post_title: 'Second Post',
+            post_date: new Date(),
+            user_id: 2,
+            post_text: 'I am excited to share my thoughts on jog-social.',
+          },
+          {
+            post_title: 'Third Post',
+            post_date: new Date(),
+            user_id: 3,
+            post_text: 'I hope you enjoy reading my latest post.',
+          },  
+    ]).then(() => {
+        res.send('Seeded posts succesfully!');
+    });
+});
+
 module.exports = router;

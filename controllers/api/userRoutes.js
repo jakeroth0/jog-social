@@ -134,4 +134,33 @@ router.post('/logout', (req, res) => {
   }
 });
 
+// POST seed users
+router.post('/seed', (req, res) => {
+  User.bulkCreate([
+    {
+      id: 1,
+      username: 'JohnDoe',
+      user_email: 'johndoe@example.com',
+      user_created: new Date(),
+      password: '$2b$10$RJT./VUfRjHKBcIELMkekODIk5CHzqJwRojkUVk4vUBZvkah67sCy',
+    },
+    {
+      id: 2,
+      username: 'JaneDoe',
+      user_email: 'janedoe@example.com',
+      user_created: new Date(),
+      password: '$2b$10$RJT./VUfRjHKBcIELMkekODIk5CHzqJwRojkUVk4vUBZvkah67sCy',
+    },
+    {
+      id: 3,
+      username: 'Tammy',
+      user_email: 'tammy@example.com',
+      user_created: new Date(),
+      password: '$2b$10$RJT./VUfRjHKBcIELMkekODIk5CHzqJwRojkUVk4vUBZvkah67sCy',
+    },
+  ]).then(() => {
+    res.send('Seeded users succesfully!');
+  });
+});
+
 module.exports = router;
