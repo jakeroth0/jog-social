@@ -16,7 +16,7 @@
   <body class="font-['Roboto']">
     <header class="bg-red-800 text-white p-4 relative">
       <h1 class="text-3xl inline">
-        <a href="http://localhost:3001/">ChatJOG</a>
+        <a href="http://localhost:3001">ChatJOG</a>
       </h1>
       <nav class="inline">
         <ul>
@@ -30,8 +30,8 @@
             <li class="inline ml-4"><a
                 href="http://localhost:3001/api/users/profile/{{user_id}}"
               >Profile</a></li>
-            <li class="inline ml-4"><a
-                href="http://localhost:3001/logout"
+            <li id="logout" class="inline ml-4"><a
+                href="http://localhost:3001/api/users/logout"
               >Logout</a></li>
           </ul>
         </nav>
@@ -46,13 +46,7 @@
     <main class="container container-fluid mt-5">
       {{{body}}}
     </main>
-    <footer class="absolute bottom-2 left-2">
-      <div class="container">
-        <p>&copy; ChatJOG. All rights reserved.</p>
-        <p>Created by Jake Roth, George Thomas, and Orlando Nelson </p>
-      </div>
-
-    </footer>
+    
 
     <!-- Only include the logout script if the user is logged in -->
     {{#if logged_in}}
