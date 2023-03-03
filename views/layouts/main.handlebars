@@ -16,7 +16,7 @@
   <body class="font-['Roboto']">
     <header class="bg-red-800 text-white p-4 relative">
       <h1 class="text-3xl inline">
-        <a href="http://localhost:3001">ChatJOG</a>
+        <a href="/">ChatJOG</a>
       </h1>
       <nav class="inline">
         <ul>
@@ -28,17 +28,17 @@
         <nav class="absolute right-4 top-1/2 -translate-y-1/2">
           <ul class="text-right">
             <li class="inline ml-4"><a
-                href="http://localhost:3001/api/users/profile/{{user_id}}"
+                href="/api/users/profile/{{user_id}}"
               >Profile</a></li>
             <li id="logout" class="inline ml-4"><a
-                href="http://localhost:3001/api/users/logout"
+                href="/api/users/logout"
               >Logout</a></li>
           </ul>
         </nav>
       {{else}}
         <nav class="absolute right-4 top-1/2 -translate-y-1/2">
           <ul>
-            <li><a href="http://localhost:3001/signup">Sign Up</a></li>
+            <li><a href="/signup">Sign Up</a></li>
           </ul>
         </nav>
       {{/if}}

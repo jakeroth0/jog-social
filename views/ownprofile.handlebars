@@ -6,11 +6,11 @@
 
   <h2 class="text-xl font-bold mb-4 mt-8 inline">Your Posts</h2>
   <button class="inline float-right border"><a
-      href="http://localhost:3001/new"
+      href="/new"
     >+</a></button>
   <div class="border-b w-full mb-4"></div>
   {{#each user.posts as |post|}}
-  <a href="http://localhost:3001/api/posts/{{post.id}}">
+  <a href="/api/posts/{{post.id}}">
     <div
       id="post-container"
       class="p-4 my-4 border rounded-full"
@@ -18,6 +18,6 @@
       -
       {{post.post_date}}</div>
       </a>
-      <a href="http://localhost:3001/api/posts/edit/{{post.id}}">edit</a>
+      <a href="/api/posts/edit/{{post.id}}">edit</a>
   {{/each}}
 </div>
