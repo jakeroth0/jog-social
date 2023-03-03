@@ -18,9 +18,16 @@ router.get('/', withAuth, async (req, res) => {
         const userData = await User.findAll();
         const user = userData.map((user) => user.get({ plain: true }));
         const user_id =req.session.user_id;
+
+        
+        console.log(user_id);
+        const currentuser = await User.findByPk(req.session.user_id);
+        console.log(currentuser.username);
+        console.log('this is currentuser.username---------------');
         
         res.render('homepage', {
             posts,
+            currentuser: currentuser.username,
             user,
             user_id,
             logged_in: true

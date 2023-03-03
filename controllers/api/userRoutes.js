@@ -58,18 +58,6 @@ router.post('/login', async (req, res) => {
     }
   });
 
-//   POST to logout
-router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-      // Remove the session variables
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
-    }
-  });
-
 //   GET all users
 router.get("/", async (req, res) => {
     try {
@@ -118,7 +106,7 @@ router.get('/profile/:id', async (req, res) => {
                 include: [
                     {
                         model: Post,
-                        attributes: ['post_title', 'post_date'],
+                        attributes: ['post_title', 'post_date', 'id'],
                     }
                 ]
             });
@@ -132,6 +120,18 @@ router.get('/profile/:id', async (req, res) => {
         } catch (err) {
             res.status(500).json(err);
         }}
+});
+
+//   POST to logout
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    // Remove the session variables
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 module.exports = router;

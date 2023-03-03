@@ -10,11 +10,14 @@
     >+</a></button>
   <div class="border-b w-full mb-4"></div>
   {{#each user.posts as |post|}}
+  <a href="http://localhost:3001/api/posts/{{post.id}}">
     <div
       id="post-container"
       class="p-4 my-4 border rounded-full"
     >{{post.post_title}}
       -
       {{post.post_date}}</div>
+      </a>
+      <a href="http://localhost:3001/api/posts/edit/{{post.id}}">edit</a>
   {{/each}}
 </div>

@@ -8,6 +8,8 @@
   {{#each user.posts}}
     <div id="post-container" class="my-4 rounded-full border p-4">
       <h2>{{this.post_title}} - {{this.post_date}}</h2>
+      <a href="http://localhost:3001/api/posts/edit/">edit</a>
     </div>
   {{/each}}
 </div>
+{{! <script src="/js/editpost.js"></script> }}
