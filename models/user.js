@@ -29,6 +29,7 @@ User.init ({
     },
     user_created: {
         type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
     },
    password: {
     type: DataTypes.STRING,
