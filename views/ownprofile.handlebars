@@ -5,19 +5,28 @@
   <h1 class="text-xl">@{{user.username}}</h1>
 
   <h2 class="text-xl font-bold mb-4 mt-8 inline">Your Posts</h2>
-  <button class="inline float-right border"><a
-      href="/new"
-    >+</a></button>
+  <button class="inline float-right border"><a href="/new"><span
+        class="material-symbols-outlined align-middle"
+      >
+        add
+      </span></a></button>
   <div class="border-b w-full mb-4"></div>
   {{#each user.posts as |post|}}
-  <a href="/api/posts/{{post.id}}">
-    <div
-      id="post-container"
-      class="p-4 my-4 border rounded-full"
-    >{{post.post_title}}
-      -
-      {{post.post_date}}</div>
+    <div class="p-10 my-4 border rounded-[50px]">
+      <a href="/api/posts/{{post.id}}">
+        <div
+          id="post-container"
+          class="p-4 mb-10 border rounded-full"
+        >{{post.post_title}}
+          -
+          {{post.post_date}}</div>
       </a>
-      <a href="/api/posts/edit/{{post.id}}">edit</a>
+      <a
+        class="p-4 border rounded-full"
+        href="/api/posts/edit/{{post.id}}"
+      ><span class="material-symbols-outlined align-middle">
+          edit
+        </span><p class="font-bold inline pl-3">EDIT</p></a>
+    </div>
   {{/each}}
 </div>
